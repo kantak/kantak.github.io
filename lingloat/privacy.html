@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – Lingloat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .back { font-size: 13px; color: #6C63FF; text-decoration: none; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch button {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #888;
+    }
+    .lang-switch button.active {
+      background: #6C63FF;
+      border-color: #6C63FF;
+      color: #fff;
+      font-weight: 600;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 13px; margin-bottom: 32px; }
+    h2 { font-size: 17px; font-weight: 700; margin: 32px 0 12px; color: #333; }
+    p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { font-size: 14px; line-height: 1.8; color: #444; }
+    a { color: #6C63FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <a class="back" href="index.html">← Lingloat</a>
+      <div class="lang-switch">
+        <button onclick="setLang('ja')" id="btn-ja">日本語</button>
+        <button onclick="setLang('en')" id="btn-en">English</button>
+        <button onclick="setLang('fr')" id="btn-fr">Français</button>
+      </div>
+    </div>
+
+    <h1 id="title"></h1>
+    <p class="meta" id="updated"></p>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    const t = {
+      ja: {
+        title: 'プライバシーポリシー',
+        updated: '最終更新日：2026年6月9日',
+        sections: [
+          { h: null, p: 'kantak（以下「当方」）は、Lingloat（以下「本アプリ」）におけるユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。' },
+          { h: '1. 収集する情報', p: '本アプリは以下の情報を収集します：', ul: ['アカウント情報：メールアドレス、表示名、プロフィール画像（Google／Apple アカウント経由）', '学習コンテンツ：ユーザーが入力したジャーナル、保存したフレーズ、クイズの結果', '利用データ：学習ストリーク、アプリの利用状況', '購読情報：プレミアムプランの購読状態', '端末情報：プッシュ通知トークン'] },
+          { h: '2. 情報の利用目的', ul: ['アカウントの作成・認証', '学習コンテンツの保存・同期', 'AI による翻訳・添削・クイズ生成', 'プッシュ通知の送信', '購読管理・課金処理', 'アプリの改善・不具合対応'] },
+          { h: '3. 第三者サービスへの情報提供', p: '本アプリは以下の第三者サービスを利用しており、それぞれのプライバシーポリシーに従って情報が処理されます：', ul: ['<strong>Firebase（Google）</strong>：認証、プッシュ通知', '<strong>RevenueCat</strong>：購読・課金管理', '<strong>Anthropic</strong>：AI テキスト処理（翻訳・添削）', '<strong>Supabase</strong>：データベース（データ保管）'], p2: '当方は、法令に基づく場合を除き、ユーザーの同意なく第三者に個人情報を販売・提供しません。' },
+          { h: '4. データの保管と削除', p: 'ユーザーデータはアカウントが有効な期間中保管されます。アカウントを削除した場合、30日以内にすべての個人データを削除します。アプリ内の設定画面からアカウント削除が可能です。' },
+          { h: '5. セキュリティ', p: '当方はユーザーデータを保護するため、業界標準のセキュリティ対策を講じています。ただし、インターネット上での完全なセキュリティを保証することはできません。' },
+          { h: '6. 子どものプライバシー', p: '本アプリは13歳未満の方を対象としていません。13歳未満の方の個人情報と知りながら収集することはありません。' },
+          { h: '7. プライバシーポリシーの変更', p: '本ポリシーは予告なく変更される場合があります。重要な変更がある場合はアプリ内またはこのページにて通知します。' },
+          { h: '8. お問い合わせ', p: 'プライバシーに関するご質問は <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a> までご連絡ください。' },
+        ],
+      },
+      en: {
+        title: 'Privacy Policy',
+        updated: 'Last updated: June 9, 2026',
+        sections: [
+          { h: null, p: 'kantak ("we") operates the Lingloat mobile application ("the App"). This Privacy Policy explains how we collect, use, and protect your information.' },
+          { h: '1. Information We Collect', p: 'We collect the following information:', ul: ['Account information: email address, display name, profile photo (via Google / Apple Sign-In)', 'Learning content: journals you write, saved phrases, quiz results', 'Usage data: learning streaks, app activity', 'Subscription information: premium plan status', 'Device information: push notification tokens'] },
+          { h: '2. How We Use Your Information', ul: ['Create and authenticate your account', 'Store and sync your learning content', 'Generate AI translations, corrections, and quizzes', 'Send push notifications', 'Manage subscriptions and billing', 'Improve the app and fix issues'] },
+          { h: '3. Third-Party Services', p: 'The App uses the following third-party services, each governed by their own privacy policy:', ul: ['<strong>Firebase (Google)</strong>: authentication, push notifications', '<strong>RevenueCat</strong>: subscription and billing management', '<strong>Anthropic</strong>: AI text processing (translation, correction)', '<strong>Supabase</strong>: database storage'], p2: 'We do not sell or share your personal information with third parties except as required by law.' },
+          { h: '4. Data Retention and Deletion', p: 'Your data is retained while your account is active. When you delete your account, all personal data will be removed within 30 days. You can delete your account at any time from the Settings screen in the app.' },
+          { h: '5. Security', p: 'We implement industry-standard security measures to protect your data. However, no method of transmission over the internet is 100% secure.' },
+          { h: '6. Children\'s Privacy', p: 'The App is not directed to children under 13. We do not knowingly collect personal information from children under 13.' },
+          { h: '7. Changes to This Policy', p: 'We may update this Privacy Policy from time to time. We will notify you of significant changes through the app or this page.' },
+          { h: '8. Contact Us', p: 'If you have questions about this Privacy Policy, please contact us at <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+      fr: {
+        title: 'Politique de confidentialité',
+        updated: 'Dernière mise à jour : 9 juin 2026',
+        sections: [
+          { h: null, p: 'kantak (« nous ») exploite l\'application mobile Lingloat (« l\'Application »). Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations.' },
+          { h: '1. Informations collectées', p: 'Nous collectons les informations suivantes :', ul: ['Informations de compte : adresse e-mail, nom d\'affichage, photo de profil (via Google / Apple)', 'Contenu d\'apprentissage : journaux, phrases enregistrées, résultats de quiz', 'Données d\'utilisation : séries d\'apprentissage, activité dans l\'application', 'Informations d\'abonnement : statut du plan premium', 'Informations sur l\'appareil : jetons de notification push'] },
+          { h: '2. Utilisation des informations', ul: ['Créer et authentifier votre compte', 'Stocker et synchroniser votre contenu d\'apprentissage', 'Générer des traductions, corrections et quiz par IA', 'Envoyer des notifications push', 'Gérer les abonnements et la facturation', 'Améliorer l\'application et corriger les problèmes'] },
+          { h: '3. Services tiers', p: 'L\'application utilise les services tiers suivants, chacun régi par sa propre politique de confidentialité :', ul: ['<strong>Firebase (Google)</strong> : authentification, notifications push', '<strong>RevenueCat</strong> : gestion des abonnements et de la facturation', '<strong>Anthropic</strong> : traitement de texte par IA', '<strong>Supabase</strong> : stockage de données'], p2: 'Nous ne vendons ni ne partageons vos informations personnelles avec des tiers, sauf si la loi l\'exige.' },
+          { h: '4. Conservation et suppression des données', p: 'Vos données sont conservées tant que votre compte est actif. Lorsque vous supprimez votre compte, toutes les données personnelles seront supprimées dans les 30 jours. Vous pouvez supprimer votre compte à tout moment depuis l\'écran Paramètres.' },
+          { h: '5. Sécurité', p: 'Nous mettons en œuvre des mesures de sécurité standard pour protéger vos données. Cependant, aucune transmission sur Internet n\'est totalement sécurisée.' },
+          { h: '6. Confidentialité des enfants', p: 'L\'application n\'est pas destinée aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d\'informations personnelles auprès d\'enfants de moins de 13 ans.' },
+          { h: '7. Modifications de cette politique', p: 'Nous pouvons mettre à jour cette politique de confidentialité. Nous vous informerons des modifications importantes via l\'application ou cette page.' },
+          { h: '8. Nous contacter', p: 'Pour toute question, contactez-nous à <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+    };
+
+    function renderContent(lang) {
+      const d = t[lang];
+      document.getElementById('title').innerText = d.title;
+      document.getElementById('updated').innerText = d.updated;
+      document.documentElement.lang = lang;
+
+      let html = '';
+      d.sections.forEach(s => {
+        if (s.h) html += `<h2>${s.h}</h2>`;
+        if (s.p) html += `<p>${s.p}</p>`;
+        if (s.ul) html += '<ul>' + s.ul.map(i => `<li>${i}</li>`).join('') + '</ul>';
+        if (s.p2) html += `<p>${s.p2}</p>`;
+      });
+      document.getElementById('content').innerHTML = html;
+    }
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      renderContent(lang);
+    }
+
+    const browserLang = navigator.language.slice(0, 2);
+    setLang(['ja', 'en', 'fr'].includes(browserLang) ? browserLang : 'en');
+  </script>
+</body>
+</html>

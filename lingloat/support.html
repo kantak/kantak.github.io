@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support – Lingloat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .back { font-size: 13px; color: #6C63FF; text-decoration: none; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-switch button {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #888;
+    }
+    .lang-switch button.active {
+      background: #6C63FF;
+      border-color: #6C63FF;
+      color: #fff;
+      font-weight: 600;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 13px; margin-bottom: 32px; }
+    h2 { font-size: 17px; font-weight: 700; margin: 32px 0 16px; color: #333; }
+    .faq { border: 1px solid #eee; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-size: 14px; font-weight: 600; background: #fafafa; }
+    .faq-a { padding: 12px 20px 16px; font-size: 14px; line-height: 1.8; color: #555; }
+    .contact-box {
+      background: #f3f1ff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 32px;
+    }
+    .contact-box h2 { margin-top: 0; }
+    .contact-box p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 8px; }
+    a { color: #6C63FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <a class="back" href="index.html">← Lingloat</a>
+      <div class="lang-switch">
+        <button onclick="setLang('ja')" id="btn-ja">日本語</button>
+        <button onclick="setLang('en')" id="btn-en">English</button>
+        <button onclick="setLang('fr')" id="btn-fr">Français</button>
+      </div>
+    </div>
+
+    <h1 id="title"></h1>
+    <p class="subtitle" id="subtitle"></p>
+    <h2 id="faq-title"></h2>
+    <div id="faq-list"></div>
+    <div class="contact-box">
+      <h2 id="contact-title"></h2>
+      <p id="contact-body"></p>
+      <p><a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a></p>
+    </div>
+  </div>
+
+  <script>
+    const t = {
+      ja: {
+        title: 'サポート',
+        subtitle: 'Lingloat に関するよくある質問とお問い合わせ先',
+        faqTitle: 'よくある質問',
+        faqs: [
+          { q: 'プレミアムプランをキャンセルするには？', a: 'アプリ内の「プレミアムプラン」画面にある「サブスクリプションを管理」をタップすると、App Store のサブスクリプション管理画面に移動してキャンセルできます。' },
+          { q: '以前の購入を復元するには？', a: 'アプリ内の「プレミアムプラン」画面にある「購入を復元」をタップしてください。' },
+          { q: 'アカウントを削除するには？', a: '設定画面の「アカウント削除」からいつでも削除できます。削除後30日以内にすべてのデータを消去します。' },
+          { q: '対応している言語は？', a: '現在、日本語・英語・フランス語のインターフェースに対応しています。学習できる言語の組み合わせは随時拡充予定です。' },
+        ],
+        contactTitle: 'お問い合わせ',
+        contactBody: '上記で解決しない場合は、メールにてお気軽にご連絡ください。',
+      },
+      en: {
+        title: 'Support',
+        subtitle: 'Frequently asked questions and contact information for Lingloat',
+        faqTitle: 'Frequently Asked Questions',
+        faqs: [
+          { q: 'How do I cancel my premium subscription?', a: 'Tap "Manage Subscription" on the Premium Plan screen in the app. This takes you to the App Store subscription management page where you can cancel.' },
+          { q: 'How do I restore a previous purchase?', a: 'Tap "Restore Purchases" on the Premium Plan screen in the app.' },
+          { q: 'How do I delete my account?', a: 'Go to Settings and tap "Delete Account". All your data will be removed within 30 days.' },
+          { q: 'Which languages are supported?', a: 'The app interface is available in Japanese, English, and French. More language combinations are planned.' },
+        ],
+        contactTitle: 'Contact Us',
+        contactBody: 'If you couldn\'t find the answer above, feel free to reach out.',
+      },
+      fr: {
+        title: 'Assistance',
+        subtitle: 'Questions fréquentes et coordonnées pour Lingloat',
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Comment annuler mon abonnement premium ?', a: 'Appuyez sur « Gérer l\'abonnement » sur l\'écran Plan Premium. Vous serez redirigé vers la page de gestion des abonnements de l\'App Store.' },
+          { q: 'Comment restaurer un achat précédent ?', a: 'Appuyez sur « Restaurer les achats » sur l\'écran Plan Premium.' },
+          { q: 'Comment supprimer mon compte ?', a: 'Accédez aux Paramètres et appuyez sur « Supprimer le compte ». Toutes vos données seront supprimées dans les 30 jours.' },
+          { q: 'Quelles langues sont prises en charge ?', a: 'L\'interface est disponible en japonais, anglais et français. D\'autres combinaisons de langues sont prévues.' },
+        ],
+        contactTitle: 'Nous contacter',
+        contactBody: 'Si vous n\'avez pas trouvé de réponse, n\'hésitez pas à nous écrire.',
+      },
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+
+      const d = t[lang];
+      document.getElementById('title').innerText = d.title;
+      document.getElementById('subtitle').innerText = d.subtitle;
+      document.getElementById('faq-title').innerText = d.faqTitle;
+      document.getElementById('faq-list').innerHTML = d.faqs.map(f =>
+        `<div class="faq"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`
+      ).join('');
+      document.getElementById('contact-title').innerText = d.contactTitle;
+      document.getElementById('contact-body').innerText = d.contactBody;
+    }
+
+    const browserLang = navigator.language.slice(0, 2);
+    setLang(['ja', 'en', 'fr'].includes(browserLang) ? browserLang : 'en');
+  </script>
+</body>
+</html>
