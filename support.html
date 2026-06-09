@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support – Lingloat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 8px; }
+    .back { font-size: 13px; color: #6C63FF; text-decoration: none; }
+    .lang-switch { display: flex; gap: 6px; flex-wrap: wrap; }
+    .lang-switch button {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 11px;
+      cursor: pointer;
+      color: #888;
+    }
+    .lang-switch button.active {
+      background: #6C63FF;
+      border-color: #6C63FF;
+      color: #fff;
+      font-weight: 600;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 13px; margin-bottom: 32px; }
+    h2 { font-size: 17px; font-weight: 700; margin: 32px 0 16px; color: #333; }
+    .faq { border: 1px solid #eee; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-size: 14px; font-weight: 600; background: #fafafa; }
+    .faq-a { padding: 12px 20px 16px; font-size: 14px; line-height: 1.8; color: #555; }
+    .contact-box {
+      background: #f3f1ff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 32px;
+    }
+    .contact-box h2 { margin-top: 0; }
+    .contact-box p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 8px; }
+    a { color: #6C63FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <a class="back" href="index.html">← Lingloat</a>
+      <div class="lang-switch">
+        <button onclick="setLang('ja')" id="btn-ja">日本語</button>
+        <button onclick="setLang('en')" id="btn-en">English</button>
+        <button onclick="setLang('fr')" id="btn-fr">Français</button>
+        <button onclick="setLang('es')" id="btn-es">Español</button>
+        <button onclick="setLang('zh')" id="btn-zh">中文</button>
+        <button onclick="setLang('ko')" id="btn-ko">한국어</button>
+        <button onclick="setLang('de')" id="btn-de">Deutsch</button>
+        <button onclick="setLang('pt')" id="btn-pt">Português</button>
+      </div>
+    </div>
+
+    <h1 id="title"></h1>
+    <p class="subtitle" id="subtitle"></p>
+    <h2 id="faq-title"></h2>
+    <div id="faq-list"></div>
+    <div class="contact-box">
+      <h2 id="contact-title"></h2>
+      <p id="contact-body"></p>
+      <p><a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a></p>
+    </div>
+  </div>
+
+  <script>
+    const t = {
+      ja: {
+        title: 'サポート',
+        subtitle: 'Lingloat に関するよくある質問とお問い合わせ先',
+        faqTitle: 'よくある質問',
+        faqs: [
+          { q: 'プレミアムプランをキャンセルするには？', a: 'アプリ内の「プレミアムプラン」画面にある「サブスクリプションを管理」をタップすると、App Store のサブスクリプション管理画面に移動してキャンセルできます。' },
+          { q: '以前の購入を復元するには？', a: 'アプリ内の「プレミアムプラン」画面にある「購入を復元」をタップしてください。' },
+          { q: 'アカウントを削除するには？', a: '設定画面の「アカウント削除」からいつでも削除できます。削除後30日以内にすべてのデータを消去します。' },
+          { q: '対応している言語は？', a: 'アプリの表示言語として日本語・英語・フランス語・スペイン語・中国語・韓国語・ドイツ語・ポルトガル語に対応しています。' },
+        ],
+        contactTitle: 'お問い合わせ',
+        contactBody: '上記で解決しない場合は、メールにてお気軽にご連絡ください。',
+      },
+      en: {
+        title: 'Support',
+        subtitle: 'Frequently asked questions and contact information for Lingloat',
+        faqTitle: 'Frequently Asked Questions',
+        faqs: [
+          { q: 'How do I cancel my premium subscription?', a: 'Tap "Manage Subscription" on the Premium Plan screen in the app. This takes you to the App Store subscription management page where you can cancel.' },
+          { q: 'How do I restore a previous purchase?', a: 'Tap "Restore Purchases" on the Premium Plan screen in the app.' },
+          { q: 'How do I delete my account?', a: 'Go to Settings and tap "Delete Account". All your data will be removed within 30 days.' },
+          { q: 'Which languages are supported?', a: 'The app interface is available in Japanese, English, French, Spanish, Chinese, Korean, German, and Portuguese.' },
+        ],
+        contactTitle: 'Contact Us',
+        contactBody: 'If you couldn\'t find the answer above, feel free to reach out.',
+      },
+      fr: {
+        title: 'Assistance',
+        subtitle: 'Questions fréquentes et coordonnées pour Lingloat',
+        faqTitle: 'Questions fréquentes',
+        faqs: [
+          { q: 'Comment annuler mon abonnement premium ?', a: 'Appuyez sur « Gérer l\'abonnement » sur l\'écran Plan Premium. Vous serez redirigé vers la page de gestion des abonnements de l\'App Store.' },
+          { q: 'Comment restaurer un achat précédent ?', a: 'Appuyez sur « Restaurer les achats » sur l\'écran Plan Premium.' },
+          { q: 'Comment supprimer mon compte ?', a: 'Accédez aux Paramètres et appuyez sur « Supprimer le compte ». Toutes vos données seront supprimées dans les 30 jours.' },
+          { q: 'Quelles langues sont prises en charge ?', a: 'L\'interface est disponible en japonais, anglais, français, espagnol, chinois, coréen, allemand et portugais.' },
+        ],
+        contactTitle: 'Nous contacter',
+        contactBody: 'Si vous n\'avez pas trouvé de réponse, n\'hésitez pas à nous écrire.',
+      },
+      es: {
+        title: 'Soporte',
+        subtitle: 'Preguntas frecuentes e información de contacto para Lingloat',
+        faqTitle: 'Preguntas frecuentes',
+        faqs: [
+          { q: '¿Cómo cancelo mi suscripción premium?', a: 'Toca "Gestionar suscripción" en la pantalla Plan Premium de la app. Esto te lleva a la página de gestión de suscripciones del App Store.' },
+          { q: '¿Cómo restauro una compra anterior?', a: 'Toca "Restaurar compras" en la pantalla Plan Premium de la app.' },
+          { q: '¿Cómo elimino mi cuenta?', a: 'Ve a Ajustes y toca "Eliminar cuenta". Todos tus datos se borrarán en 30 días.' },
+          { q: '¿Qué idiomas están disponibles?', a: 'La interfaz está disponible en japonés, inglés, francés, español, chino, coreano, alemán y portugués.' },
+        ],
+        contactTitle: 'Contáctanos',
+        contactBody: 'Si no encontraste la respuesta, no dudes en escribirnos.',
+      },
+      zh: {
+        title: '支持',
+        subtitle: 'Lingloat 常见问题与联系方式',
+        faqTitle: '常见问题',
+        faqs: [
+          { q: '如何取消高级订阅？', a: '在应用的"高级计划"页面点击"管理订阅"，即可跳转到 App Store 订阅管理页面取消。' },
+          { q: '如何恢复之前的购买？', a: '在应用的"高级计划"页面点击"恢复购买"。' },
+          { q: '如何删除账户？', a: '进入设置页面，点击"删除账户"。所有数据将在30天内删除。' },
+          { q: '支持哪些语言？', a: '应用界面支持日语、英语、法语、西班牙语、中文、韩语、德语和葡萄牙语。' },
+        ],
+        contactTitle: '联系我们',
+        contactBody: '如果以上内容没有解决您的问题，请随时联系我们。',
+      },
+      ko: {
+        title: '지원',
+        subtitle: 'Lingloat 자주 묻는 질문 및 연락처',
+        faqTitle: '자주 묻는 질문',
+        faqs: [
+          { q: '프리미엄 구독을 취소하려면?', a: '앱의 "프리미엄 플랜" 화면에서 "구독 관리"를 탭하면 App Store 구독 관리 페이지로 이동하여 취소할 수 있습니다.' },
+          { q: '이전 구매를 복원하려면?', a: '앱의 "프리미엄 플랜" 화면에서 "구매 복원"을 탭하세요.' },
+          { q: '계정을 삭제하려면?', a: '설정 화면에서 "계정 삭제"를 탭하세요. 모든 데이터는 30일 이내에 삭제됩니다.' },
+          { q: '어떤 언어를 지원하나요?', a: '앱 인터페이스는 일본어, 영어, 프랑스어, 스페인어, 중국어, 한국어, 독일어, 포르투갈어를 지원합니다.' },
+        ],
+        contactTitle: '문의하기',
+        contactBody: '위 내용으로 해결되지 않으면 언제든지 연락해 주세요.',
+      },
+      de: {
+        title: 'Support',
+        subtitle: 'Häufig gestellte Fragen und Kontaktinformationen für Lingloat',
+        faqTitle: 'Häufig gestellte Fragen',
+        faqs: [
+          { q: 'Wie kündige ich mein Premium-Abonnement?', a: 'Tippe auf "Abonnement verwalten" auf dem Premium-Plan-Bildschirm der App. Du wirst zur Abonnementverwaltung des App Store weitergeleitet.' },
+          { q: 'Wie stelle ich einen früheren Kauf wieder her?', a: 'Tippe auf "Käufe wiederherstellen" auf dem Premium-Plan-Bildschirm der App.' },
+          { q: 'Wie lösche ich mein Konto?', a: 'Gehe zu Einstellungen und tippe auf "Konto löschen". Alle deine Daten werden innerhalb von 30 Tagen entfernt.' },
+          { q: 'Welche Sprachen werden unterstützt?', a: 'Die App-Oberfläche ist auf Japanisch, Englisch, Französisch, Spanisch, Chinesisch, Koreanisch, Deutsch und Portugiesisch verfügbar.' },
+        ],
+        contactTitle: 'Kontakt',
+        contactBody: 'Wenn du keine Antwort gefunden hast, schreib uns einfach.',
+      },
+      pt: {
+        title: 'Suporte',
+        subtitle: 'Perguntas frequentes e informações de contato do Lingloat',
+        faqTitle: 'Perguntas Frequentes',
+        faqs: [
+          { q: 'Como cancelo minha assinatura premium?', a: 'Toque em "Gerenciar assinatura" na tela do Plano Premium do app. Isso leva você à página de gerenciamento de assinaturas da App Store.' },
+          { q: 'Como restauro uma compra anterior?', a: 'Toque em "Restaurar compras" na tela do Plano Premium do app.' },
+          { q: 'Como excluo minha conta?', a: 'Vá em Configurações e toque em "Excluir conta". Todos os seus dados serão removidos em 30 dias.' },
+          { q: 'Quais idiomas são suportados?', a: 'A interface do app está disponível em japonês, inglês, francês, espanhol, chinês, coreano, alemão e português.' },
+        ],
+        contactTitle: 'Fale conosco',
+        contactBody: 'Se não encontrou a resposta acima, entre em contato conosco.',
+      },
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+
+      const d = t[lang];
+      document.getElementById('title').innerText = d.title;
+      document.getElementById('subtitle').innerText = d.subtitle;
+      document.getElementById('faq-title').innerText = d.faqTitle;
+      document.getElementById('faq-list').innerHTML = d.faqs.map(f =>
+        `<div class="faq"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`
+      ).join('');
+      document.getElementById('contact-title').innerText = d.contactTitle;
+      document.getElementById('contact-body').innerText = d.contactBody;
+    }
+
+    const browserLang = navigator.language.slice(0, 2);
+    setLang(['ja','en','fr','es','zh','ko','de','pt'].includes(browserLang) ? browserLang : 'en');
+  </script>
+</body>
+</html>
