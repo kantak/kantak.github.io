@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kantak – App Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 15px; margin-bottom: 32px; }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 16px; }
+    .apps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .app {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+    }
+    .app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6C63FF, #48A9FE);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .app-name { font-weight: 600; font-size: 16px; margin-bottom: 2px; }
+    .app-desc { font-size: 13px; color: #666; }
+    .contact { font-size: 14px; color: #666; }
+    .contact a { color: #6C63FF; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>kantak</h1>
+    <p class="subtitle">Independent App Developer</p>
+
+    <h2>Apps</h2>
+    <div class="apps">
+      <div class="app">
+        <div class="app-icon">🌐</div>
+        <div>
+          <div class="app-name">Lingloat</div>
+          <div class="app-desc">AI-powered language learning app. Learn from your own daily expressions.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Contact</h2>
+    <p class="contact">
+      Support: <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>
+    </p>
+  </div>
+</body>
+</html>
