@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-version="2026-06-15">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +19,17 @@
     }
     .lang-switch {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .lang-switch button {
       background: none;
       border: 1px solid #ddd;
       border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 12px;
+      padding: 4px 12px;
+      font-size: 11px;
       cursor: pointer;
       color: #888;
     }
@@ -57,7 +59,7 @@
       margin-bottom: 20px;
     }
     h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-    .tagline { color: #666; font-size: 15px; margin-bottom: 24px; line-height: 1.6; }
+    .tagline { color: #666; font-size: 15px; margin-bottom: 24px; line-height: 1.6; white-space: pre-line; }
     .badges { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
     .badge {
       background: #f3f1ff;
@@ -79,9 +81,14 @@
 </head>
 <body>
   <div class="lang-switch">
-    <button onclick="setLang('ja')" id="btn-ja" class="active">日本語</button>
+    <button onclick="setLang('ja')" id="btn-ja">日本語</button>
     <button onclick="setLang('en')" id="btn-en">English</button>
     <button onclick="setLang('fr')" id="btn-fr">Français</button>
+    <button onclick="setLang('es')" id="btn-es">Español</button>
+    <button onclick="setLang('zh')" id="btn-zh">中文</button>
+    <button onclick="setLang('ko')" id="btn-ko">한국어</button>
+    <button onclick="setLang('de')" id="btn-de">Deutsch</button>
+    <button onclick="setLang('pt')" id="btn-pt">Português</button>
   </div>
   <div class="card">
     <div class="icon">🌐</div>
@@ -114,6 +121,36 @@
         support: 'Assistance',
         privacy: 'Politique de confidentialité',
       },
+      es: {
+        tagline: 'App de aprendizaje de idiomas con IA.\nIngresa tus expresiones del día y obtén traducciones, correcciones y quizzes automáticamente.',
+        badges: ['iOS', 'Traducción IA', 'Gestor de frases', 'Quiz'],
+        support: 'Soporte',
+        privacy: 'Política de privacidad',
+      },
+      zh: {
+        tagline: 'AI 驱动的语言学习应用。\n输入您的日常表达，自动获得翻译、纠错和测验。',
+        badges: ['iOS', 'AI翻译·纠错', '短语管理', '测验'],
+        support: '支持',
+        privacy: '隐私政策',
+      },
+      ko: {
+        tagline: 'AI 기반 언어 학습 앱.\n일상 표현을 입력하면 번역, 교정, 퀴즈가 자동으로 생성됩니다.',
+        badges: ['iOS', 'AI 번역·교정', '표현 관리', '퀴즈'],
+        support: '지원',
+        privacy: '개인정보 처리방침',
+      },
+      de: {
+        tagline: 'KI-gestützte Sprachlern-App.\nGib deine täglichen Ausdrücke ein und erhalte automatisch Übersetzungen, Korrekturen und Quizze.',
+        badges: ['iOS', 'KI-Übersetzung', 'Ausdrucks-Manager', 'Quiz'],
+        support: 'Support',
+        privacy: 'Datenschutzerklärung',
+      },
+      pt: {
+        tagline: 'App de aprendizado de idiomas com IA.\nDigite suas expressões do dia e obtenha traduções, correções e quizzes automaticamente.',
+        badges: ['iOS', 'Tradução IA', 'Gerenciador de expressões', 'Quiz'],
+        support: 'Suporte',
+        privacy: 'Política de Privacidade',
+      },
     };
 
     function setLang(lang) {
@@ -129,7 +166,7 @@
     }
 
     const browserLang = navigator.language.slice(0, 2);
-    setLang(['ja', 'en', 'fr'].includes(browserLang) ? browserLang : 'en');
+    setLang(['ja','en','fr','es','zh','ko','de','pt'].includes(browserLang) ? browserLang : 'en');
   </script>
 </body>
 </html>
