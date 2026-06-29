@@ -98,6 +98,7 @@
     <div class="links">
       <a href="support.html" id="link-support"></a>
       <a href="privacy.html" id="link-privacy"></a>
+      <a href="terms.html" id="link-terms"></a>
     </div>
   </div>
 
@@ -108,48 +109,56 @@
         badges: ['iOS', 'AI翻訳・添削', 'フレーズ管理', 'クイズ'],
         support: 'サポート',
         privacy: 'プライバシーポリシー',
+        terms: '利用規約',
       },
       en: {
         tagline: 'AI-powered language learning app.\nInput your daily expressions and get translations, corrections, and quizzes automatically.',
         badges: ['iOS', 'AI Translation', 'Phrase Manager', 'Quizzes'],
         support: 'Support',
         privacy: 'Privacy Policy',
+        terms: 'Terms of Use',
       },
       fr: {
         tagline: 'Application d\'apprentissage des langues par IA.\nSaisissez vos expressions quotidiennes et obtenez des traductions, corrections et quiz automatiquement.',
         badges: ['iOS', 'Traduction IA', 'Gestionnaire de phrases', 'Quiz'],
         support: 'Assistance',
         privacy: 'Politique de confidentialité',
+        terms: 'Conditions d\'utilisation',
       },
       es: {
         tagline: 'App de aprendizaje de idiomas con IA.\nIngresa tus expresiones del día y obtén traducciones, correcciones y quizzes automáticamente.',
         badges: ['iOS', 'Traducción IA', 'Gestor de frases', 'Quiz'],
         support: 'Soporte',
         privacy: 'Política de privacidad',
+        terms: 'Términos de uso',
       },
       zh: {
         tagline: 'AI 驱动的语言学习应用。\n输入您的日常表达，自动获得翻译、纠错和测验。',
         badges: ['iOS', 'AI翻译·纠错', '短语管理', '测验'],
         support: '支持',
         privacy: '隐私政策',
+        terms: '使用条款',
       },
       ko: {
         tagline: 'AI 기반 언어 학습 앱.\n일상 표현을 입력하면 번역, 교정, 퀴즈가 자동으로 생성됩니다.',
         badges: ['iOS', 'AI 번역·교정', '표현 관리', '퀴즈'],
         support: '지원',
         privacy: '개인정보 처리방침',
+        terms: '이용약관',
       },
       de: {
         tagline: 'KI-gestützte Sprachlern-App.\nGib deine täglichen Ausdrücke ein und erhalte automatisch Übersetzungen, Korrekturen und Quizze.',
         badges: ['iOS', 'KI-Übersetzung', 'Ausdrucks-Manager', 'Quiz'],
         support: 'Support',
         privacy: 'Datenschutzerklärung',
+        terms: 'Nutzungsbedingungen',
       },
       pt: {
         tagline: 'App de aprendizado de idiomas com IA.\nDigite suas expressões do dia e obtenha traduções, correções e quizzes automaticamente.',
         badges: ['iOS', 'Tradução IA', 'Gerenciador de expressões', 'Quiz'],
         support: 'Suporte',
         privacy: 'Política de Privacidade',
+        terms: 'Termos de Uso',
       },
     };
 
@@ -163,6 +172,7 @@
       document.getElementById('badges').innerHTML = d.badges.map(b => `<span class="badge">${b}</span>`).join('');
       document.getElementById('link-support').innerText = d.support;
       document.getElementById('link-privacy').innerText = d.privacy;
+      document.getElementById('link-terms').innerText = d.terms;
     }
 
     const browserLang = navigator.language.slice(0, 2);

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use – Lingloat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 8px; }
+    .back { font-size: 13px; color: #6C63FF; text-decoration: none; }
+    .lang-switch { display: flex; gap: 6px; flex-wrap: wrap; }
+    .lang-switch button {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 11px;
+      cursor: pointer;
+      color: #888;
+    }
+    .lang-switch button.active {
+      background: #6C63FF;
+      border-color: #6C63FF;
+      color: #fff;
+      font-weight: 600;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .meta { color: #888; font-size: 13px; margin-bottom: 32px; }
+    h2 { font-size: 17px; font-weight: 700; margin: 32px 0 12px; color: #333; }
+    p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { font-size: 14px; line-height: 1.8; color: #444; }
+    a { color: #6C63FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <a class="back" href="index.html">← Lingloat</a>
+      <div class="lang-switch">
+        <button onclick="setLang('ja')" id="btn-ja">日本語</button>
+        <button onclick="setLang('en')" id="btn-en">English</button>
+        <button onclick="setLang('fr')" id="btn-fr">Français</button>
+        <button onclick="setLang('es')" id="btn-es">Español</button>
+        <button onclick="setLang('zh')" id="btn-zh">中文</button>
+        <button onclick="setLang('ko')" id="btn-ko">한국어</button>
+        <button onclick="setLang('de')" id="btn-de">Deutsch</button>
+        <button onclick="setLang('pt')" id="btn-pt">Português</button>
+      </div>
+    </div>
+
+    <h1 id="title"></h1>
+    <p class="meta" id="updated"></p>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    const t = {
+      ja: {
+        title: '利用規約',
+        updated: '最終更新日：2026年6月29日',
+        sections: [
+          { h: null, p: 'kantak（以下「当方」）が提供するLingloat（以下「本アプリ」）をご利用いただくにあたり、以下の利用規約（以下「本規約」）をお読みください。本アプリをご利用いただいた時点で、本規約に同意したものとみなします。' },
+          { h: '1. サービスの概要', p: '本アプリは、AIを活用した語学学習サービスです。翻訳・添削・フレーズ管理・クイズなどの機能を提供します。' },
+          { h: '2. アカウント', p: 'ご利用にはアカウントの作成が必要です。アカウント情報の管理はユーザー自身の責任において行ってください。不正アクセスが疑われる場合は直ちにご連絡ください。' },
+          { h: '3. プレミアムサブスクリプション', ul: ['プレミアムプランは月次または年次の自動更新サブスクリプションです', '料金は購入確認時に明示されます', 'サブスクリプションは更新日の24時間前までにキャンセルしない限り自動更新されます', 'キャンセルはApp Storeのサブスクリプション管理画面から行えます', '現在の期間の途中でのキャンセルによる日割り返金は行われません'] },
+          { h: '4. 禁止事項', p: '以下の行為を禁止します：', ul: ['本アプリの逆コンパイル・リバースエンジニアリング', '他のユーザーへの迷惑行為', '不正な目的でのサービス利用', '著作権を侵害するコンテンツのアップロード'] },
+          { h: '5. 知的財産権', p: '本アプリおよびそのコンテンツに関する知的財産権は当方または正当な権利者に帰属します。ユーザーが入力したコンテンツの権利はユーザー自身に帰属します。' },
+          { h: '6. 免責事項', p: '本アプリは「現状のまま」提供されます。当方は本アプリの正確性・完全性・有用性を保証するものではなく、サービスの中断・エラーについて責任を負いません。' },
+          { h: '7. サービスの変更・終了', p: '当方は予告なく本アプリの機能変更・終了を行う場合があります。重要な変更がある場合はアプリ内または本サイトにてお知らせします。' },
+          { h: '8. 規約の変更', p: '本規約は予告なく変更される場合があります。変更後も本アプリをご利用いただいた場合、変更後の規約に同意したものとみなします。' },
+          { h: '9. 準拠法・管轄', p: '本規約は日本法に準拠します。本規約に関する紛争は、当方の所在地を管轄する裁判所を専属的合意管轄とします。' },
+          { h: '10. お問い合わせ', p: '本規約に関するご質問は <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a> までご連絡ください。' },
+        ],
+      },
+      en: {
+        title: 'Terms of Use',
+        updated: 'Last updated: June 29, 2026',
+        sections: [
+          { h: null, p: 'Please read these Terms of Use ("Terms") carefully before using the Lingloat mobile application ("the App") operated by kantak ("we", "us"). By using the App, you agree to be bound by these Terms.' },
+          { h: '1. Description of Service', p: 'Lingloat is an AI-powered language learning app that provides translation, correction, phrase management, and quiz features.' },
+          { h: '2. Account', p: 'You must create an account to use the App. You are responsible for maintaining the confidentiality of your account credentials. Please contact us immediately if you suspect unauthorized access.' },
+          { h: '3. Premium Subscription', ul: ['The Premium plan is a monthly or annual auto-renewing subscription', 'Prices are clearly shown at the time of purchase', 'Subscriptions automatically renew unless cancelled at least 24 hours before the renewal date', 'You can cancel anytime through the App Store subscription management settings', 'No partial refunds are issued for unused portions of a subscription period'] },
+          { h: '4. Prohibited Conduct', p: 'You agree not to:', ul: ['Decompile, reverse engineer, or attempt to extract the source code of the App', 'Harass, abuse, or harm other users', 'Use the service for any unlawful purpose', 'Upload content that infringes third-party intellectual property rights'] },
+          { h: '5. Intellectual Property', p: 'All intellectual property rights in the App and its content belong to us or our licensors. Content you create and input remains your property.' },
+          { h: '6. Disclaimer of Warranties', p: 'The App is provided "as is" without any warranties. We do not guarantee the accuracy, completeness, or usefulness of the App and are not liable for service interruptions or errors.' },
+          { h: '7. Changes and Termination', p: 'We may modify or discontinue the App at any time without prior notice. We will notify you of significant changes through the App or this website.' },
+          { h: '8. Changes to Terms', p: 'We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the updated Terms.' },
+          { h: '9. Governing Law', p: 'These Terms are governed by the laws of Japan. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in Japan.' },
+          { h: '10. Contact Us', p: 'If you have any questions about these Terms, please contact us at <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+      fr: {
+        title: "Conditions d'utilisation",
+        updated: 'Dernière mise à jour : 29 juin 2026',
+        sections: [
+          { h: null, p: "Veuillez lire attentivement ces Conditions d'utilisation (« Conditions ») avant d'utiliser l'application mobile Lingloat (« l'Application ») exploitée par kantak (« nous »). En utilisant l'Application, vous acceptez d'être lié par ces Conditions." },
+          { h: '1. Description du service', p: "Lingloat est une application d'apprentissage des langues basée sur l'IA, proposant des fonctionnalités de traduction, correction, gestion de phrases et quiz." },
+          { h: '2. Compte', p: "Vous devez créer un compte pour utiliser l'Application. Vous êtes responsable de la confidentialité de vos identifiants. Contactez-nous immédiatement si vous suspectez un accès non autorisé." },
+          { h: '3. Abonnement Premium', ul: ["Le plan Premium est un abonnement mensuel ou annuel à renouvellement automatique", "Les prix sont clairement indiqués au moment de l'achat", "Les abonnements se renouvellent automatiquement sauf annulation au moins 24 heures avant la date de renouvellement", "Vous pouvez annuler à tout moment via les paramètres de gestion des abonnements de l'App Store", "Aucun remboursement partiel n'est effectué pour les périodes non utilisées"] },
+          { h: '4. Conduite interdite', p: 'Vous vous engagez à ne pas :', ul: ["Décompiler, désassembler ou tenter d'extraire le code source de l'Application", "Harceler, abuser ou nuire à d'autres utilisateurs", "Utiliser le service à des fins illégales", "Télécharger du contenu portant atteinte aux droits de propriété intellectuelle de tiers"] },
+          { h: '5. Propriété intellectuelle', p: "Tous les droits de propriété intellectuelle relatifs à l'Application et à son contenu appartiennent à nous ou à nos concédants. Le contenu que vous créez et saisissez reste votre propriété." },
+          { h: '6. Exclusion de garanties', p: "L'Application est fournie « en l'état » sans aucune garantie. Nous ne garantissons pas l'exactitude, l'exhaustivité ou l'utilité de l'Application et ne sommes pas responsables des interruptions de service ou des erreurs." },
+          { h: '7. Modifications et résiliation', p: "Nous pouvons modifier ou interrompre l'Application à tout moment sans préavis. Nous vous informerons des changements importants via l'Application ou ce site." },
+          { h: '8. Modifications des Conditions', p: "Nous pouvons mettre à jour ces Conditions. L'utilisation continue de l'Application après les modifications constitue une acceptation des Conditions mises à jour." },
+          { h: '9. Droit applicable', p: 'Ces Conditions sont régies par le droit japonais. Tout litige découlant de ces Conditions sera soumis à la juridiction exclusive des tribunaux japonais.' },
+          { h: '10. Nous contacter', p: 'Pour toute question sur ces Conditions, contactez-nous à <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+      es: {
+        title: 'Términos de uso',
+        updated: 'Última actualización: 29 de junio de 2026',
+        sections: [
+          { h: null, p: 'Por favor, lee estos Términos de uso ("Términos") cuidadosamente antes de usar la aplicación móvil Lingloat ("la App") operada por kantak ("nosotros"). Al usar la App, aceptas quedar vinculado por estos Términos.' },
+          { h: '1. Descripción del servicio', p: 'Lingloat es una app de aprendizaje de idiomas con IA que ofrece traducción, corrección, gestión de frases y quizzes.' },
+          { h: '2. Cuenta', p: 'Debes crear una cuenta para usar la App. Eres responsable de mantener la confidencialidad de tus credenciales. Contáctanos inmediatamente si sospechas acceso no autorizado.' },
+          { h: '3. Suscripción Premium', ul: ['El plan Premium es una suscripción mensual o anual de renovación automática', 'Los precios se muestran claramente en el momento de la compra', 'Las suscripciones se renuevan automáticamente a menos que se cancelen al menos 24 horas antes de la fecha de renovación', 'Puedes cancelar en cualquier momento desde la gestión de suscripciones del App Store', 'No se realizan reembolsos parciales por períodos no utilizados'] },
+          { h: '4. Conducta prohibida', p: 'Aceptas no:', ul: ['Descompilar, aplicar ingeniería inversa o intentar extraer el código fuente de la App', 'Acosar, abusar o dañar a otros usuarios', 'Usar el servicio con fines ilegales', 'Subir contenido que infrinja derechos de propiedad intelectual de terceros'] },
+          { h: '5. Propiedad intelectual', p: 'Todos los derechos de propiedad intelectual de la App y su contenido nos pertenecen a nosotros o a nuestros licenciantes. El contenido que creas e introduces sigue siendo de tu propiedad.' },
+          { h: '6. Exclusión de garantías', p: 'La App se proporciona "tal cual" sin garantías. No garantizamos la exactitud, integridad o utilidad de la App y no somos responsables de interrupciones del servicio o errores.' },
+          { h: '7. Cambios y rescisión', p: 'Podemos modificar o discontinuar la App en cualquier momento sin previo aviso. Te notificaremos sobre cambios importantes a través de la App o este sitio web.' },
+          { h: '8. Cambios en los Términos', p: 'Podemos actualizar estos Términos. El uso continuado de la App tras los cambios constituye la aceptación de los Términos actualizados.' },
+          { h: '9. Ley aplicable', p: 'Estos Términos se rigen por las leyes de Japón. Cualquier disputa derivada de estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales de Japón.' },
+          { h: '10. Contáctanos', p: 'Si tienes preguntas sobre estos Términos, contáctanos en <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+      zh: {
+        title: '使用条款',
+        updated: '最后更新：2026年6月29日',
+        sections: [
+          { h: null, p: '请在使用 kantak（"我们"）运营的 Lingloat 移动应用程序（"本应用"）之前仔细阅读本使用条款（"条款"）。使用本应用即表示您同意受本条款约束。' },
+          { h: '1. 服务说明', p: 'Lingloat 是一款基于 AI 的语言学习应用，提供翻译、纠错、短语管理和测验功能。' },
+          { h: '2. 账户', p: '您必须创建账户才能使用本应用。您有责任维护账户凭据的保密性。如发现未经授权的访问，请立即联系我们。' },
+          { h: '3. 高级订阅', ul: ['高级计划是按月或按年自动续订的订阅', '价格在购买确认时明确显示', '除非在续订日期前至少24小时取消，否则订阅将自动续订', '您可以随时通过 App Store 订阅管理设置取消', '已使用的订阅期间不予部分退款'] },
+          { h: '4. 禁止行为', p: '您同意不得：', ul: ['对本应用进行反编译、逆向工程或尝试提取源代码', '骚扰、滥用或伤害其他用户', '将服务用于任何非法目的', '上传侵犯第三方知识产权的内容'] },
+          { h: '5. 知识产权', p: '本应用及其内容的所有知识产权归我们或我们的许可方所有。您创建和输入的内容仍归您所有。' },
+          { h: '6. 免责声明', p: '本应用按"现状"提供，不附带任何保证。我们不保证本应用的准确性、完整性或实用性，对服务中断或错误不承担责任。' },
+          { h: '7. 变更和终止', p: '我们可能随时修改或停止本应用，恕不另行通知。重要变更将通过应用或本网站通知您。' },
+          { h: '8. 条款变更', p: '我们可能会更新本条款。变更后继续使用本应用即表示接受更新后的条款。' },
+          { h: '9. 适用法律', p: '本条款受日本法律管辖。因本条款引起的任何争议应提交日本法院专属管辖。' },
+          { h: '10. 联系我们', p: '如有关于本条款的问题，请发送邮件至 <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>。' },
+        ],
+      },
+      ko: {
+        title: '이용약관',
+        updated: '최종 업데이트: 2026년 6월 29일',
+        sections: [
+          { h: null, p: 'kantak("당사")가 운영하는 Lingloat 모바일 애플리케이션("앱")을 사용하기 전에 본 이용약관("약관")을 주의 깊게 읽어주세요. 앱을 사용함으로써 본 약관에 동의하는 것으로 간주됩니다.' },
+          { h: '1. 서비스 설명', p: 'Lingloat은 번역, 교정, 표현 관리, 퀴즈 기능을 제공하는 AI 기반 언어 학습 앱입니다.' },
+          { h: '2. 계정', p: '앱을 사용하려면 계정을 만들어야 합니다. 계정 자격 증명의 기밀 유지는 귀하의 책임입니다. 무단 액세스가 의심되면 즉시 연락해 주세요.' },
+          { h: '3. 프리미엄 구독', ul: ['프리미엄 플랜은 월간 또는 연간 자동 갱신 구독입니다', '가격은 구매 확인 시 명확히 표시됩니다', '갱신일 최소 24시간 전에 취소하지 않으면 구독이 자동 갱신됩니다', 'App Store 구독 관리 설정에서 언제든지 취소할 수 있습니다', '사용하지 않은 구독 기간에 대한 부분 환불은 제공되지 않습니다'] },
+          { h: '4. 금지 행위', p: '귀하는 다음 행위를 하지 않기로 동의합니다:', ul: ['앱을 역컴파일, 역공학하거나 소스 코드를 추출하려는 시도', '다른 사용자를 괴롭히거나 학대하거나 해치는 행위', '서비스를 불법적인 목적으로 사용', '제3자의 지식재산권을 침해하는 콘텐츠 업로드'] },
+          { h: '5. 지식재산권', p: '앱 및 해당 콘텐츠의 모든 지식재산권은 당사 또는 당사 라이선서에게 귀속됩니다. 귀하가 생성하고 입력한 콘텐츠는 귀하의 소유입니다.' },
+          { h: '6. 보증 부인', p: '앱은 어떠한 보증도 없이 "있는 그대로" 제공됩니다. 당사는 앱의 정확성, 완전성 또는 유용성을 보장하지 않으며 서비스 중단이나 오류에 대해 책임지지 않습니다.' },
+          { h: '7. 변경 및 종료', p: '당사는 사전 통지 없이 언제든지 앱을 수정하거나 중단할 수 있습니다. 중요한 변경 사항은 앱 또는 이 웹사이트를 통해 알려드립니다.' },
+          { h: '8. 약관 변경', p: '당사는 약관을 업데이트할 수 있습니다. 변경 후 앱을 계속 사용하면 업데이트된 약관에 동의하는 것으로 간주됩니다.' },
+          { h: '9. 준거법', p: '본 약관은 일본법에 의해 규율됩니다. 본 약관으로 인한 분쟁은 일본 법원의 전속 관할에 따릅니다.' },
+          { h: '10. 문의', p: '본 약관에 대한 질문은 <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>으로 문의하세요.' },
+        ],
+      },
+      de: {
+        title: 'Nutzungsbedingungen',
+        updated: 'Zuletzt aktualisiert: 29. Juni 2026',
+        sections: [
+          { h: null, p: 'Bitte lies diese Nutzungsbedingungen ("Bedingungen") sorgfältig durch, bevor du die mobile App Lingloat ("die App") von kantak ("wir") verwendest. Durch die Nutzung der App stimmst du diesen Bedingungen zu.' },
+          { h: '1. Beschreibung des Dienstes', p: 'Lingloat ist eine KI-gestützte Sprachlern-App mit Übersetzungs-, Korrektur-, Ausdrucksverwaltungs- und Quizfunktionen.' },
+          { h: '2. Konto', p: 'Du musst ein Konto erstellen, um die App zu nutzen. Du bist für die Geheimhaltung deiner Anmeldedaten verantwortlich. Kontaktiere uns sofort, wenn du unbefugten Zugriff vermutest.' },
+          { h: '3. Premium-Abonnement', ul: ['Der Premium-Plan ist ein monatliches oder jährliches automatisch verlängertes Abonnement', 'Preise werden beim Kauf klar angezeigt', 'Abonnements verlängern sich automatisch, wenn sie nicht mindestens 24 Stunden vor dem Verlängerungsdatum gekündigt werden', 'Du kannst jederzeit über die App Store-Abonnementverwaltung kündigen', 'Keine anteiligen Erstattungen für nicht genutzte Abonnementzeiträume'] },
+          { h: '4. Verbotenes Verhalten', p: 'Du stimmst zu, Folgendes nicht zu tun:', ul: ['Die App dekompilieren, rückentwickeln oder versuchen, den Quellcode zu extrahieren', 'Andere Nutzer belästigen, missbrauchen oder schädigen', 'Den Dienst für illegale Zwecke nutzen', 'Inhalte hochladen, die Rechte Dritter verletzen'] },
+          { h: '5. Geistiges Eigentum', p: 'Alle Rechte am geistigen Eigentum der App und ihrer Inhalte gehören uns oder unseren Lizenzgebern. Inhalte, die du erstellst und eingibst, bleiben dein Eigentum.' },
+          { h: '6. Haftungsausschluss', p: 'Die App wird "wie besehen" ohne jegliche Gewährleistung bereitgestellt. Wir garantieren nicht die Genauigkeit, Vollständigkeit oder Nützlichkeit der App und haften nicht für Serviceunterbrechungen oder Fehler.' },
+          { h: '7. Änderungen und Kündigung', p: 'Wir können die App jederzeit ohne vorherige Ankündigung ändern oder einstellen. Wichtige Änderungen teilen wir dir über die App oder diese Website mit.' },
+          { h: '8. Änderungen der Bedingungen', p: 'Wir können diese Bedingungen aktualisieren. Die weitere Nutzung der App nach Änderungen gilt als Zustimmung zu den aktualisierten Bedingungen.' },
+          { h: '9. Anwendbares Recht', p: 'Diese Bedingungen unterliegen japanischem Recht. Streitigkeiten aus diesen Bedingungen unterliegen der ausschließlichen Zuständigkeit japanischer Gerichte.' },
+          { h: '10. Kontakt', p: 'Bei Fragen zu diesen Bedingungen kontaktiere uns unter <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+      pt: {
+        title: 'Termos de Uso',
+        updated: 'Última atualização: 29 de junho de 2026',
+        sections: [
+          { h: null, p: 'Por favor, leia estes Termos de Uso ("Termos") com atenção antes de usar o aplicativo móvel Lingloat ("o App") operado por kantak ("nós"). Ao usar o App, você concorda em ficar vinculado por estes Termos.' },
+          { h: '1. Descrição do serviço', p: 'Lingloat é um app de aprendizado de idiomas com IA que oferece tradução, correção, gerenciamento de expressões e quizzes.' },
+          { h: '2. Conta', p: 'Você deve criar uma conta para usar o App. Você é responsável por manter a confidencialidade de suas credenciais. Entre em contato conosco imediatamente se suspeitar de acesso não autorizado.' },
+          { h: '3. Assinatura Premium', ul: ['O plano Premium é uma assinatura mensal ou anual com renovação automática', 'Os preços são claramente exibidos no momento da compra', 'As assinaturas se renovam automaticamente, a menos que sejam canceladas pelo menos 24 horas antes da data de renovação', 'Você pode cancelar a qualquer momento pelas configurações de gerenciamento de assinaturas da App Store', 'Não são feitos reembolsos parciais por períodos de assinatura não utilizados'] },
+          { h: '4. Conduta proibida', p: 'Você concorda em não:', ul: ['Descompilar, fazer engenharia reversa ou tentar extrair o código-fonte do App', 'Assediar, abusar ou prejudicar outros usuários', 'Usar o serviço para qualquer finalidade ilegal', 'Fazer upload de conteúdo que infrinja direitos de propriedade intelectual de terceiros'] },
+          { h: '5. Propriedade intelectual', p: 'Todos os direitos de propriedade intelectual no App e em seu conteúdo pertencem a nós ou aos nossos licenciadores. O conteúdo que você cria e insere permanece de sua propriedade.' },
+          { h: '6. Isenção de garantias', p: 'O App é fornecido "como está" sem quaisquer garantias. Não garantimos a precisão, integridade ou utilidade do App e não somos responsáveis por interrupções de serviço ou erros.' },
+          { h: '7. Alterações e rescisão', p: 'Podemos modificar ou descontinuar o App a qualquer momento sem aviso prévio. Notificaremos você sobre mudanças significativas por meio do App ou deste site.' },
+          { h: '8. Alterações nos Termos', p: 'Podemos atualizar estes Termos. O uso continuado do App após as alterações constitui aceitação dos Termos atualizados.' },
+          { h: '9. Lei aplicável', p: 'Estes Termos são regidos pelas leis do Japão. Quaisquer disputas decorrentes destes Termos estarão sujeitas à jurisdição exclusiva dos tribunais do Japão.' },
+          { h: '10. Fale conosco', p: 'Se tiver dúvidas sobre estes Termos, entre em contato pelo e-mail <a href="mailto:i2kantak@gmail.com">i2kantak@gmail.com</a>.' },
+        ],
+      },
+    };
+
+    function renderContent(lang) {
+      const d = t[lang];
+      document.getElementById('title').innerText = d.title;
+      document.getElementById('updated').innerText = d.updated;
+      document.documentElement.lang = lang;
+
+      let html = '';
+      d.sections.forEach(s => {
+        if (s.h) html += `<h2>${s.h}</h2>`;
+        if (s.p) html += `<p>${s.p}</p>`;
+        if (s.ul) html += '<ul>' + s.ul.map(i => `<li>${i}</li>`).join('') + '</ul>';
+        if (s.p2) html += `<p>${s.p2}</p>`;
+      });
+      document.getElementById('content').innerHTML = html;
+    }
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      renderContent(lang);
+    }
+
+    const browserLang = navigator.language.slice(0, 2);
+    setLang(['ja','en','fr','es','zh','ko','de','pt'].includes(browserLang) ? browserLang : 'en');
+  </script>
+</body>
+</html>
